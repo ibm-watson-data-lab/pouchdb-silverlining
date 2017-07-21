@@ -7,6 +7,7 @@ var PouchDB = require('pouchdb');
 // your plugin goes here
 //
 var thePlugin = require('../');
+PouchDB.plugin(require('pouchdb-find'));
 PouchDB.plugin(thePlugin);
 
 var chai = require('chai');
@@ -39,8 +40,8 @@ function tests(dbName, dbType) {
 
   describe(dbType + ': silverlining test suite', function () {
     it('should run sql query', function () {
-      return db.query("SELECT a,b,c FROM cats WHERE color='black' OR color='white'").then(function (response) {
-        response.should.equal({docs:[]});
+      return db.sql("SELECT a,b,c FROM cats WHERE color='black' OR color='white'").then(function (response) {
+        response.docs.length.should.equal(0);
       });
     });
   });
