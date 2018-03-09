@@ -19,7 +19,7 @@ To use this plugin, include it after `pouchdb.js` in your HTML page:
 Or to use it in Node.js, just npm install it in addition to PouchDB:
 
 ```
-npm install pouchdb-myplugin
+npm install pouchdb-silverlining
 ```
 
 And then attach it to the `PouchDB` object:
